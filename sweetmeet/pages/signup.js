@@ -11,6 +11,7 @@ import {
   Button,
   Heading,
   Text,
+  Select,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useState } from 'react';
@@ -19,7 +20,6 @@ import Link from 'next/link';
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
-  const [data,setData] = useState({})
 
 
   return (
@@ -79,12 +79,25 @@ export default function SignupCard() {
             <FormControl>
               <FormLabel>Languages</FormLabel>
               <Select placeholder='Select Language'>
-                   <option>English</option>
-                   <option>Hindi</option>
-                   <option>Bengali</option>
-                   <option>Gujrati</option>
-                   <option>Tamil</option>
-                   <option>Marathi</option>
+                   <option value="eng">English</option>
+                   <option value="hin">Hindi</option>
+                   <option value="bng">Bengali</option>
+                   <option value="guj">Gujrati</option>
+                   <option value="tam">Tamil</option>
+                   <option value="mar">Marathi</option>
+              </Select>
+            </FormControl>
+            <FormControl>
+              <FormLabel>Food</FormLabel>
+              <Select placeholder='Choose your favourite food'>
+                   <option value="north">North - Indian</option>
+                   <option value="south">South - Indian</option>
+                   <option value="italian">Italian</option>
+                   <option value="mexican">Mexican</option>
+                   <option value="chinese">Chinese</option>
+                   <option value="bengali">Bengali</option>
+                   <option value="rajasthani">Rajasthani</option>
+                   <option value="gujrati">Gujrati</option>
               </Select>
             </FormControl>
             <FormControl id="hobbies" >
