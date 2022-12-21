@@ -13,64 +13,115 @@ import {
   Text,
   Select,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { useState } from 'react';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { postSign } from "../redux/user/user.action";
+
+const initialState = {
+  name: "",
+  age: "",
+  email: "",
+  password: "",
+  hobbies: [],
+  food: [],
+  languages: "",
+  gender: "",
+};
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
+  const [form, setForm] = useState(initialState);
+  const dispatch = useDispatch();
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "hobbies") {
+      setForm({ ...form, [name]: value.split(",") });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
+  };
+
+  const handleClick = () => {
+    dispatch(postSign(form));
+  };
 
   return (
     <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
+      bg={useColorModeValue("gray.50", "gray.800")}
+    >
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack align={"center"}>
+          <Heading fontSize={"4xl"} textAlign={"center"}>
             Sign up
           </Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
+          <Text fontSize={"lg"} color={"gray.600"}>
             to enjoy all of our cool features ✌️
           </Text>
         </Stack>
         <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}>
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}
+        >
           <Stack spacing={4}>
             <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>Name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    onChange={handleChange}
+                    name="name"
+                    value={form.name}
+                    type="text"
+                  />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="age">
                   <FormLabel>Age</FormLabel>
-                  <Input type="number" />
+                  <Input
+                    onChange={handleChange}
+                    name="age"
+                    value={form.age}
+                    type="number"
+                  />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input
+                onChange={handleChange}
+                name="email"
+                value={form.email}
+                type="email"
+              />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
-                <InputRightElement h={'full'}>
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={form.password}
+                  onChange={handleChange}
+                />
+                <InputRightElement h={"full"}>
                   <Button
-                    variant={'ghost'}
+                    variant={"ghost"}
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
-                    }>
+                    }
+                  >
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
@@ -78,47 +129,79 @@ export default function SignupCard() {
             </FormControl>
             <FormControl>
               <FormLabel>Languages</FormLabel>
-              <Select placeholder='Select Language'>
-                   <option value="eng">English</option>
-                   <option value="hin">Hindi</option>
-                   <option value="bng">Bengali</option>
-                   <option value="guj">Gujrati</option>
-                   <option value="tam">Tamil</option>
-                   <option value="mar">Marathi</option>
+              <Select
+                name="languages"
+                // value={form.languages}
+                placeholder="Select Language"
+                onChange={handleChange}
+              >
+                <option value="eng">English</option>
+                <option value="hin">Hindi</option>
+                <option value="bng">Bengali</option>
+                <option value="guj">Gujrati</option>
+                <option value="tam">Tamil</option>
+                <option value="mar">Marathi</option>
+              </Select>
+            </FormControl>
+            <FormControl>
+              <FormLabel>Gender</FormLabel>
+              <Select
+                name="gender"
+                // value={form.languages}
+                placeholder="Select Gender"
+                onChange={handleChange}
+              >
+                <option value="gay">Gay</option>
+                <option value="lesbian">Lesbian</option>
               </Select>
             </FormControl>
             <FormControl>
               <FormLabel>Food</FormLabel>
-              <Select placeholder='Choose your favourite food'>
-                   <option value="north">North - Indian</option>
-                   <option value="south">South - Indian</option>
-                   <option value="italian">Italian</option>
-                   <option value="mexican">Mexican</option>
-                   <option value="chinese">Chinese</option>
-                   <option value="bengali">Bengali</option>
-                   <option value="rajasthani">Rajasthani</option>
-                   <option value="gujrati">Gujrati</option>
+              <Select
+                name="food"
+                // value={form.food}
+                placeholder="Choose your favourite food"
+                onChange={handleChange}
+              >
+                <option value="north">North - Indian</option>
+                <option value="south">South - Indian</option>
+                <option value="italian">Italian</option>
+                <option value="mexican">Mexican</option>
+                <option value="chinese">Chinese</option>
+                <option value="bengali">Bengali</option>
+                <option value="rajasthani">Rajasthani</option>
+                <option value="gujrati">Gujrati</option>
               </Select>
             </FormControl>
-            <FormControl id="hobbies" >
+            <FormControl id="hobbies">
               <FormLabel>Hobbies</FormLabel>
-              <Input type="text" />
+              <Input
+                onChange={handleChange}
+                name="hobbies"
+                value={form.hobbies}
+                type="text"
+              />
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={'blue.400'}
-                color={'white'}
+                bg={"blue.400"}
+                color={"white"}
                 _hover={{
-                  bg: 'blue.500',
-                }}>
+                  bg: "blue.500",
+                }}
+                onClick={handleClick}
+              >
                 Sign up
               </Button>
             </Stack>
             <Stack pt={6}>
-              <Text align={'center'}>
-                Already a user? <Link href="/" color={'blue.400'}>Login</Link>
+              <Text align={"center"}>
+                Already a user?{" "}
+                <Link href="/" color={"blue.400"}>
+                  Login
+                </Link>
               </Text>
             </Stack>
           </Stack>
