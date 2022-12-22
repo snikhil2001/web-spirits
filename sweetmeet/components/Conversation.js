@@ -1,6 +1,7 @@
 import { Avatar, Box, Flex, Heading, WrapItem } from "@chakra-ui/react";
 
-export default function Conversation({ name }) {
+export default function Conversation({ name, conversation, currentUser }) {
+
   return (
     <Box mt="20px">
       <Flex align="center">

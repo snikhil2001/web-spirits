@@ -1,8 +1,8 @@
-import { Avatar, Box, Flex, Input, Text, WrapItem } from "@chakra-ui/react";
-import Conversation from "./Conversation";
+import { Avatar, Box, Text, WrapItem } from "@chakra-ui/react";
 import styles from "./Css/Messages.module.css";
+import { format } from "timeago.js";
 
-export default function Messages({ own }) {
+export default function Messages({ own, messages, }) {
     return (
         <Box mt="20px" className={own ? styles.own : null}>
             <Box w='400px' bg="red.100" >
@@ -11,8 +11,8 @@ export default function Messages({ own }) {
                         <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
                     </WrapItem>
                 </Box>
-                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </Text>
-                <Text bg="green.200">1 hour</Text>
+                <Text>{messages.text} </Text>
+                <Text bg="green.200">{format(messages.createdAt)}</Text>
             </Box>
         </Box>
     )
