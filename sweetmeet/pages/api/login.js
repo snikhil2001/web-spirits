@@ -1,7 +1,8 @@
+import connectDB from "../../config/db";
 import User from "../../models/user";
 const jwt = require("jsonwebtoken");
 
-export default async function login(req, res) {
+async function login(req, res) {
   if (req.method === "POST") {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -22,6 +23,7 @@ export default async function login(req, res) {
         hobbies: user.hobbies,
         languages: user.languages,
         food: user.food,
+        gender: user.gender,
       },
       "sweetmeet",
       { expiresIn: "7 days" }
@@ -30,3 +32,5 @@ export default async function login(req, res) {
     return res.send({ message: "login success", token });
   }
 }
+
+export default connectDB(login);
