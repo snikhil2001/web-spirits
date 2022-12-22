@@ -10,7 +10,12 @@ import {
   VERIFY_SUCCESS,
 } from "./user.type";
 
-// const token = localStorage.getItem("token");
+let token = undefined;
+
+if (typeof window !== "undefined") {
+  // Perform localStorage action
+  token = localStorage.getItem("token");
+}
 
 // const token = "";
 
@@ -19,8 +24,8 @@ import {
 // }
 
 const initState = {
-  isAuth: false,
-  token: "",
+  isAuth: !!token,
+  token: token,
   loading: false,
   error: false,
   tokenDetails: [],
@@ -37,7 +42,7 @@ export const userReducer = (state = initState, { type, payload }) => {
       };
     }
     case LOGIN_SUCCESS: {
-      //   localStorage.setItem("token", payload.token);
+      localStorage.setItem("token", payload.token);
       delete axios.defaults.headers.common["authorization"];
       axios.defaults.headers.common["authorization"] = payload.token;
 

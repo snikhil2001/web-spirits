@@ -25,7 +25,7 @@ const handler = async (req, res) => {
       );
     });
   }
-  return res.send(user);
+  return res.send({ user });
 };
 
 export default connectDB(handler);
