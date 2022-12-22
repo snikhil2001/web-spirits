@@ -44,20 +44,25 @@ export default function Home() {
   }, [isAuth]);
 
   return (
-    <Box>
+    <Box  bg={'black'}>
       <Navbar/>
        
-       <Flex  minH={"88vh"} align={"center"} justify={"center"} bg={'black'} gap="2rem">
+       <Stack align={"center"}>
+            <Heading fontSize={"4xl"}>"No pretenses. No games. Just real dates."</Heading>
+            <Heading>Love is Love</Heading>
+       </Stack>
+
+       <Flex  minH={"80vh"} align={"center"} justify={'space-evenly'} gap="2rem">
          <Box>
              <Image src="https://i.ibb.co/Br558sN/landing.webp" alt="logo" />
          </Box>
 
          <Flex align={"center"} justify={"center"}>
             <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-               <Stack align={"center"}>
-                  <Heading fontSize={"4xl"}>Login in to your account</Heading>
-              </Stack>
-              <Box boxShadow={"lg"} p={8} border={'1px solid pink'} >
+               {/* <Stack align={"center"}>
+                  <Heading fontSize={"4xl"}> Love is waiting in the lucky dip..</Heading>
+               </Stack> */}
+              <Box boxShadow={"lg"} p={8} border={'1px solid pink'} borderRadius={'15px'} >
                    <Box marginBottom={'4rem'}>
                       <Image src="https://i.ibb.co/LS2Q2fD/efc2b0c145dbabbfd1d930a6f80e00eb-removebg-preview.png"/>
                    </Box>

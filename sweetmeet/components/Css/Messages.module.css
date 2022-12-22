@@ -1,0 +1,7 @@
+.own{
+    display: flex;
+    justify-content: flex-end;
+}
+.own>div{
+    background-color: gray;
+}
