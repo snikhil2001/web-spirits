@@ -68,11 +68,11 @@ export default function Home() {
                    </Box>
                   <Stack spacing={4}>
                       <FormControl id="email">
-                           <Input name="email" placeholder="email" value={form.email}
+                           <Input name="email" placeholder="email" color="white" value={form.email}
                                  onChange={handleChange} type="email"/>
                      </FormControl>
                      <FormControl id="password">
-                           <Input name="password" placeholder="password" value={form.password}
+                           <Input name="password" placeholder="password" color="white" value={form.password}
                                  onChange={handleChange} type="password"/>
                      </FormControl>
                      <Stack spacing={10}>
