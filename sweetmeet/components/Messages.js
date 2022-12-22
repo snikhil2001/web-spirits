@@ -1,19 +1,20 @@
-import { Avatar, Box, Text, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Text,Flex, WrapItem } from "@chakra-ui/react";
 import styles from "./Css/Messages.module.css";
 import { format } from "timeago.js";
 
 export default function Messages({ own, messages, }) {
     return (
         <Box mt="20px" className={own ? styles.own : null}>
-            <Box w='400px' bg="red.100" >
-                <Box>
+            <Box w='400px' bg="teal" borderRadius={'10px'} >
+                <Flex alignItems={'center'} gap={'10px'}>
                     <WrapItem>
                         <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
                     </WrapItem>
-                </Box>
-                <Text>{messages.text} </Text>
-                <Text bg="green.200">{format(messages.createdAt)}</Text>
+                    <Text color={'white'} fontSize={'16px'}>{messages.text} </Text>
+                </Flex>
+                
             </Box>
+            <Text>{format(messages.createdAt)}</Text>
         </Box>
     )
 }

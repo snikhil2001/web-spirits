@@ -1,11 +1,23 @@
 import { Box } from "@chakra-ui/react";
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Home from ".";
 import Messenger from "../components/Messenger";
 
 export default function Landing() {
   const [data, setData] = useState([]);
+
+  const {isAuth} = useSelector(store=>store.user)
+  const router = useRouter()
+
+  useEffect(()=>{
+      if(!isAuth)
+      {
+        router.push("/")
+      }
+  },[isAuth])
 
   const getData = async () => {
     let token = localStorage.getItem("token");

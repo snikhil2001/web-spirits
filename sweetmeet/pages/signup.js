@@ -13,6 +13,7 @@ import {
   Text,
   Select,
   useColorModeValue,
+  Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -24,6 +25,7 @@ const initialState = {
   name: "",
   age: "",
   email: "",
+  desc:"",
   password: "",
   hobbies: [],
   food: [],
@@ -97,6 +99,15 @@ export default function SignupCard() {
                 </FormControl>
               </Box>
             </HStack>
+            <FormControl id="desc" isRequired>
+              <FormLabel>Description</FormLabel>
+              <Textarea
+                onChange={handleChange}
+                name="desc"
+                value={form.desc}
+                type="text"
+              />
+            </FormControl>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
               <Input
@@ -144,7 +155,7 @@ export default function SignupCard() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel>Gender</FormLabel>
+              <FormLabel>Orientation</FormLabel>
               <Select
                 name="gender"
                 // value={form.languages}

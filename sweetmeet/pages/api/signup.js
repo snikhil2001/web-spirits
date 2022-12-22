@@ -3,7 +3,7 @@ import connectDB from "../../config/db";
 
 async function signup(req, res) {
   if (req.method === "POST") {
-    const { name, email, age, hobbies, languages, password, food, gender } =
+    const { name, email, age,desc, hobbies, languages, password, food, gender } =
       req.body;
 
     const user = await User.findOne({ email });
@@ -18,6 +18,7 @@ async function signup(req, res) {
     await User.create({
       name,
       age,
+      desc,
       hobbies,
       languages,
       email,
@@ -30,6 +31,7 @@ async function signup(req, res) {
       message: "user created successfully",
       name,
       age,
+      desc,
       email,
       hobbies,
       languages,

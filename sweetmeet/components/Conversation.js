@@ -4,7 +4,7 @@ export default function Conversation({ name, conversation, currentUser }) {
 
   return (
     <Box mt="20px">
-      <Flex align="center">
+      <Flex align="center" gap={'10px'}>
         <Box>
           <WrapItem>
             <Avatar
@@ -14,7 +14,7 @@ export default function Conversation({ name, conversation, currentUser }) {
           </WrapItem>
         </Box>
         <Box>
-          <Heading as="h1">{name}</Heading>
+          <Heading as="h1" color={'white'}>{name}</Heading>
         </Box>
       </Flex>
     </Box>

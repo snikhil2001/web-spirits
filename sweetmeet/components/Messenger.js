@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
+import { Box, Button, Flex,Text, Heading, Input } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Conversation from "./Conversation";
@@ -8,12 +8,15 @@ import SocialProfile from "./profile";
 import { decodeToken } from "react-jwt";
 import { io } from "socket.io-client";
 import axios from "axios";
+import Navbar from "./Navbar";
+import Card from "./Card"
 
 let conversationId = "";
 
 
 export default function Messenger({ data }) {
   // console.log('data:', data);
+  const [show,setShow] = useState(false)
 
   const [tokenDetails, setTokenDetails] = useState({});
   console.log('tokenDetails:', tokenDetails)
@@ -31,31 +34,31 @@ export default function Messenger({ data }) {
   const { isAuth } = useSelector((store) => store.user);
 
   //socket.io
-  useEffect(() => {
-    socket.current = io("ws://localhost:8900");
-    socket.current.on("getMessage", (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      })
-    })
-  }, [])
+//   useEffect(() => {
+//     socket.current = io("ws://localhost:8900");
+//     socket.current.on("getMessage", (data) => {
+//       setArrivalMessage({
+//         sender: data.senderId,
+//         text: data.text,
+//         createdAt: Date.now(),
+//       })
+//     })
+//   }, [])
 
-  useEffect(() => {
-    arrivalMessage &&
-      currentChat?.members.includes(arrivalMessage.sender) &&
-      setMessages((prev) => [...prev, arrivalMessage])
-  }, [arrivalMessage, currentChat])
+//   useEffect(() => {
+//     arrivalMessage &&
+//       currentChat?.members.includes(arrivalMessage.sender) &&
+//       setMessages((prev) => [...prev, arrivalMessage])
+//   }, [arrivalMessage, currentChat])
 
-  useEffect(() => {
+//   useEffect(() => {
 
-    console.log(' tokenDetails._id:',  tokenDetails._id)
-    socket.current.emit("addUser", tokenDetails._id)
-    socket.current.on("getUsers", users => {
-      console.log('users from server side to client:', users[0].userid || users[1])
-    })
-  }, [tokenDetails])
+//     console.log(' tokenDetails._id:',  tokenDetails._id)
+//     socket.current.emit("addUser", tokenDetails._id)
+//     socket.current.on("getUsers", users => {
+//       console.log('users from server side to client:', users[0].userid || users[1])
+//     })
+//   }, [tokenDetails])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -136,45 +139,65 @@ export default function Messenger({ data }) {
     setNewMessage("");
   }
 
+
+   const disable = (flag)=>{
+
+        setShow(flag)
+        console.log(show)
+   }
+
   return (
-    <Flex justify="space-between">
+
+    <Box display="flex" flexDirection={'column'} gap={'6px'} >
+        <Navbar/>
+        <Flex justify="space-between">
+      
       <Box
         w="25%"
         className={styles.chatMenu}
         bgGradient={"linear(to-r, red.400, orange.500)"}
       >
-        Profile
-        <SocialProfile />
+        <Heading align={'center'} color={'white'}> My Profile</Heading>
+        <SocialProfile token={tokenDetails} />
       </Box>
 
-      <Box w="45%" bg="blue.300" className={styles.chatBox}>
-        Chat Box
-        <Box overflowY="auto" h="500px">
+      {show?<Flex>
+         {data && data.map((item,index)=>(
+            <Card key={index} disable={disable} data={item} />
+         ))}
+      </Flex>:
+
+      
+      <>
+      <Box w="45%" className={styles.chatBox}>
+        <Box overflowY="auto" h="600px">
           {currentChat ?
             <Box >
               {
                 messages && messages.map((m, index) => (
                   <Box key={index} ref={scrollRef}>
-                    <Messages own={m.sender !== tokenDetails._id} messages={m} conversation={conversation} />
+                    <Messages own={m.sender === tokenDetails._id} messages={m} conversation={conversation} />
                   </Box>
                 ))
               }
             </Box>
             :
-            <Heading as="h1" bg="red.400">Open Conversation</Heading>}
+           <Flex justify={'space-evenly'}> 
+            <Heading as="h1" bg="pink.200" align={'center'}>Start a conversation </Heading>
+            <Text onClick={()=> setShow(true)} fontSize={'18px'} fontWeight={'bold'} cursor={'pointer'} >Go back</Text>
+            </Flex>}
         </Box>
-        <Flex>
+        <Flex >
           <Input bg="#fff" placeholder="Write Something"
             onChange={(e) => setNewMessage(e.target.value)}
             value={newMessage}
           />
-          <Button onClick={handleSubmit}>Send</Button>
+          <Button bg={'teal'} color={'white'} onClick={handleSubmit}>Send</Button>
         </Flex>
       </Box>
 
-      <Box w="25%" className={styles.chatMenu} bg="red.300">
-        Chat Menu
-        <Input placeholder="Search friend" />
+      <Box w="25%" className={styles.chatMenu} p={'2'} bg="black">
+         <Heading color="white">Most Recent</Heading>
 
         {data && data.map((el, index) =>
           <Box key={index} onClick={() => {
@@ -187,18 +210,8 @@ export default function Messenger({ data }) {
         )}
 
       </Box>
-      {/* <Flex
-        flexDirection="column"
-        w="30%"
-        bg="green.100"
-        className={styles.chatOnline}
-      >
-        {" "}
-        Chat Online
-        <ChatOnline />
-        <ChatOnline />
-        <ChatOnline />
-      </Flex> */}
-    </Flex>
+      </>}
+        </Flex>
+    </Box>
   );
 }

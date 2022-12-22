@@ -17,6 +17,7 @@ import {
 import axios from "axios";
 
 import Link from "next/link";
+import {useRouter} from "next/router"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../components/Navbar";
@@ -25,6 +26,7 @@ import { postLogin } from "../redux/user/user.action";
 const initialState = { email: "", password: "" };
 
 export default function Home() {
+  const router = useRouter()
   const [form, setForm] = useState(initialState);
   const dispatch = useDispatch();
   const { isAuth } = useSelector((store) => store.user);
@@ -35,11 +37,12 @@ export default function Home() {
 
   const handleSubmit = () => {
     dispatch(postLogin(form));
+    
   };
 
   useEffect(() => {
     if (isAuth) {
-      // alert("You are logged in");
+      router.push("/landing")
     }
   }, [isAuth]);
 
