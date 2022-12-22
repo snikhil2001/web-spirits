@@ -1,7 +1,6 @@
 import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import ChatOnline from "./ChatOnline";
 import Conversation from "./Conversation";
 import styles from "./Css/Messages.module.css";
 import Messages from "./Messages";
@@ -17,6 +16,7 @@ export default function Messenger({ data }) {
   // console.log('data:', data);
 
   const [tokenDetails, setTokenDetails] = useState({});
+  console.log('tokenDetails:', tokenDetails)
   // const [conversationId, setConversationId] = useState("");
 
   // const dispatch = useDispatch();
@@ -50,10 +50,10 @@ export default function Messenger({ data }) {
 
   useEffect(() => {
 
+    console.log(' tokenDetails._id:',  tokenDetails._id)
     socket.current.emit("addUser", tokenDetails._id)
     socket.current.on("getUsers", users => {
       console.log('users from server side to client:', users[0].userid || users[1])
-
     })
   }, [tokenDetails])
 
@@ -81,7 +81,7 @@ export default function Messenger({ data }) {
 
   useEffect(() => {
     getConversation();
-  }, [tokenDetails._id])
+  }, [tokenDetails])
 
   //message 
   const getMessages = async (conversationId) => {
@@ -115,7 +115,7 @@ export default function Messenger({ data }) {
     const message = {
       conversationId: currentChat._id,
       text: newMessage,
-      sender: tokenDetails.id
+      sender: tokenDetails._id
     }
     // console.log('currentChat:', currentChat)
     const receivedId = currentChat.members.find((member) => member !== tokenDetails._id)
