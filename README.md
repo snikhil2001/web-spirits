@@ -105,25 +105,29 @@ Form validation
 <br/><br/>
 <div width="100%">
 <h3>Signin Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_signup.PNG"/>
+![Alt text](img/Sweetmeet_signup.PNG)
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
 <div width="100%">
 <h3>Login Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_login.PNG"/>
+![Alt text](img/Sweetmeet_login.PNG)
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
 <div width="100%">
 <h3>Landing page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_Landing.PNG"/>
+![Alt text](img/Sweetmeet_Landing.PNG)
 </div>
 <br/><br/>
 <div width="100%">
 <h3>Chatting Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_Chatting.PNG"/>
+![Alt text](img/Sweetmeet_Chattingapp.PNG)
 <div/>
 <br/><br/>
 
 <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
+
+
+
+
