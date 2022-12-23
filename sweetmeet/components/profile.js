@@ -31,7 +31,8 @@ import { LOGOUT } from '../redux/user/user.type';
           <Avatar
             size={'4xl'}
             src={
-              'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+              token.gender=="lesbian"? "https://toppng.com/uploads/preview/user-pro-avatar-scalable-vector-graphics-icon-woman-icon-11553526869tcdfa31pvo.png":
+              "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
             }
             alt={'Avatar Alt'}
             mb={4}
@@ -79,6 +80,7 @@ import { LOGOUT } from '../redux/user/user.type';
 
           <Box marginTop={'16px'} >
              <Button bgGradient="linear(to-r,orange.500, yellow.500, green.400, red.300 )"
+             _hover={{ bgGradient: "linear(to-r, red.400, orange.500)" }}
                    fontSize={'18px'} color={"white"} height="50px" width="180px"
                    onClick={()=>dispatch({type:LOGOUT})}>Logout</Button>
           </Box>

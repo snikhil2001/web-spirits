@@ -34,31 +34,31 @@ export default function Messenger({ data }) {
   const { isAuth } = useSelector((store) => store.user);
 
   //socket.io
-//   useEffect(() => {
-//     socket.current = io("ws://localhost:8900");
-//     socket.current.on("getMessage", (data) => {
-//       setArrivalMessage({
-//         sender: data.senderId,
-//         text: data.text,
-//         createdAt: Date.now(),
-//       })
-//     })
-//   }, [])
+  useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", (data) => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      })
+    })
+  }, [])
 
-//   useEffect(() => {
-//     arrivalMessage &&
-//       currentChat?.members.includes(arrivalMessage.sender) &&
-//       setMessages((prev) => [...prev, arrivalMessage])
-//   }, [arrivalMessage, currentChat])
+  useEffect(() => {
+    arrivalMessage &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      setMessages((prev) => [...prev, arrivalMessage])
+  }, [arrivalMessage, currentChat])
 
-//   useEffect(() => {
+  useEffect(() => {
 
-//     console.log(' tokenDetails._id:',  tokenDetails._id)
-//     socket.current.emit("addUser", tokenDetails._id)
-//     socket.current.on("getUsers", users => {
-//       console.log('users from server side to client:', users[0].userid || users[1])
-//     })
-//   }, [tokenDetails])
+    console.log(' tokenDetails._id:',  tokenDetails._id)
+    socket.current.emit("addUser", tokenDetails._id)
+    socket.current.on("getUsers", users => {
+      console.log('users from server side to client:', users[0].userid || users[1])
+    })
+  }, [tokenDetails])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -183,7 +183,7 @@ export default function Messenger({ data }) {
             </Box>
             :
            <Flex justify={'space-evenly'}> 
-            <Heading as="h1" bg="pink.200" align={'center'}>Start a conversation </Heading>
+            <Heading as="h1" align={'center'}>Start a conversation </Heading>
             <Text onClick={()=> setShow(true)} fontSize={'18px'} fontWeight={'bold'} cursor={'pointer'} >Go back</Text>
             </Flex>}
         </Box>
@@ -197,7 +197,7 @@ export default function Messenger({ data }) {
       </Box>
 
       <Box w="25%" className={styles.chatMenu} p={'2'} bg="black">
-         <Heading color="white">Most Recent</Heading>
+         <Text color="white" fontSize={'25px'}>Most Recent</Text>
 
         {data && data.map((el, index) =>
           <Box key={index} onClick={() => {

@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Heading, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Text, WrapItem } from "@chakra-ui/react";
 
 export default function Conversation({ name, conversation, currentUser }) {
 
@@ -14,7 +14,7 @@ export default function Conversation({ name, conversation, currentUser }) {
           </WrapItem>
         </Box>
         <Box>
-          <Heading as="h1" color={'white'}>{name}</Heading>
+          <Text fontSize={'20px'} color={'white'}>{name}</Text>
         </Box>
       </Flex>
     </Box>

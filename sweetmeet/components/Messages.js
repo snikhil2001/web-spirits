@@ -8,7 +8,7 @@ export default function Messages({ own, messages, }) {
             <Box w='400px' bg="teal" borderRadius={'10px'} >
                 <Flex alignItems={'center'} gap={'10px'}>
                     <WrapItem>
-                        <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
+                        <Avatar name='Dan Abrahmov' src='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_640.png' />
                     </WrapItem>
                     <Text color={'white'} fontSize={'16px'}>{messages.text} </Text>
                 </Flex>
