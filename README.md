@@ -51,7 +51,6 @@ according to their age, food choices and hobbies.**
 
 <br/><br/>
 ## 🤝 **_Collaborators_**
-## 🤝 **Team Name:- Web-Sprit**
 
 # 👨🏻 **Nikhil Sahni** `Team Leader`
 
