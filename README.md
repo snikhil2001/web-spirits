@@ -111,18 +111,18 @@ User Can Create their Sign in details and after that he can able to Login to web
 <br/><br/>
 <div width="100%">
 <h3>Login Page</h3>
-![Alt text](img/Sweetmeet_login.PNG)
+<img src="https://github.com/snikhil2001/web-spirits/blob/main/img/Sweetmeet_login.PNG" />
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
 <div width="100%">
 <h3>Landing page</h3>
-![Alt text](img/Sweetmeet_Landing.PNG)
+<img src="https://github.com/snikhil2001/web-spirits/blob/main/img/Sweetmeet_Landing.PNG" />
 </div>
 <br/><br/>
 <div width="100%">
 <h3>Chatting Page</h3>
-![Alt text](img/Sweetmeet_Chattingapp.PNG)
+<img src="https://github.com/snikhil2001/web-spirits/blob/main/img/Sweetmeet_Chatting.PNG" />
 <div/>
 <br/><br/>
 
