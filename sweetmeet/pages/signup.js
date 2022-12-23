@@ -14,6 +14,7 @@ import {
   Select,
   useColorModeValue,
   Textarea,
+  Image
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -54,77 +55,99 @@ export default function SignupCard() {
 
   return (
     <Flex
-      minH={"100vh"}
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
+      // minH={"100vh"}s
+      justifyContent={"space-evenly"}
+      alignItems={"center"}
+      bgColor={'black'}
+      backgroundImage="url('https://i.ibb.co/Q8146sN/logo.png')"
+      backgroundPosition={'center'}
+      backgroundRepeat="no-repeat"
+      backgroundSize={'800px'}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+      <Box bgColor={'blackAlpha.600'} >
+      <Stack spacing={8} mx={"auto"} maxW={"xl"} py={12}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
+          <Heading fontSize={"4xl"} textAlign={"center"} color={'white'}>
+            Create Account
           </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
         </Stack>
         <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
+          border={"1px solid pink"}
+          borderRadius={"15px"}
           boxShadow={"lg"}
           p={8}
         >
           <Stack spacing={4}>
-            <HStack>
+            <HStack spacing={6}>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel color={'pink'} fontSize={'18px'}>Name</FormLabel>
                   <Input
                     onChange={handleChange}
                     name="name"
                     value={form.name}
                     type="text"
+                    border="none"
+                    borderBottom={"1px solid pink"}
+                    color={'white'}
+                    fontSize={'14px'}
                   />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="age">
-                  <FormLabel>Age</FormLabel>
+                  <FormLabel color={'pink'} fontSize={'18px'}>Age</FormLabel>
                   <Input
                     onChange={handleChange}
                     name="age"
                     value={form.age}
                     type="number"
+                    border="none"
+                    borderBottom={"1px solid pink"}
+                    color={'white'}
+                    fontSize={'14px'}
                   />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="desc" isRequired>
-              <FormLabel>Description</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Bio</FormLabel>
               <Textarea
                 onChange={handleChange}
                 name="desc"
                 value={form.desc}
                 type="text"
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               />
             </FormControl>
             <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Email address</FormLabel>
               <Input
                 onChange={handleChange}
                 name="email"
                 value={form.email}
                 type="email"
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Password</FormLabel>
               <InputGroup>
                 <Input
                   type={showPassword ? "text" : "password"}
                   name="password"
                   value={form.password}
                   onChange={handleChange}
+                  border="none"
+                  borderBottom={"1px solid pink"}
+                  color={'white'}
+                  fontSize={'14px'}
                 />
                 <InputRightElement h={"full"}>
                   <Button
@@ -139,12 +162,16 @@ export default function SignupCard() {
               </InputGroup>
             </FormControl>
             <FormControl>
-              <FormLabel>Languages</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Languages</FormLabel>
               <Select
                 name="languages"
                 // value={form.languages}
                 placeholder="Select Language"
                 onChange={handleChange}
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               >
                 <option value="eng">English</option>
                 <option value="hin">Hindi</option>
@@ -155,24 +182,32 @@ export default function SignupCard() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel>Orientation</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}> Sexual Orientation</FormLabel>
               <Select
                 name="gender"
                 // value={form.languages}
                 placeholder="Select Gender"
                 onChange={handleChange}
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               >
                 <option value="gay">Gay</option>
                 <option value="lesbian">Lesbian</option>
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel>Food</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Food</FormLabel>
               <Select
                 name="food"
                 // value={form.food}
                 placeholder="Choose your favourite food"
                 onChange={handleChange}
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               >
                 <option value="north">North - Indian</option>
                 <option value="south">South - Indian</option>
@@ -185,30 +220,32 @@ export default function SignupCard() {
               </Select>
             </FormControl>
             <FormControl id="hobbies">
-              <FormLabel>Hobbies</FormLabel>
+              <FormLabel color={'pink'} fontSize={'18px'}>Hobbies</FormLabel>
               <Input
                 onChange={handleChange}
                 name="hobbies"
                 value={form.hobbies}
                 type="text"
+                border="none"
+                borderBottom={"1px solid pink"}
+                color={'white'}
+                fontSize={'14px'}
               />
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={"blue.400"}
+                bgGradient="linear(to-r, red.400, orange.500, yellow.500, green.400 )"
                 color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
+                _hover={{ bgGradient: "linear(to-r, red.400, orange.500)" }}
                 onClick={handleClick}
               >
                 Sign up
               </Button>
             </Stack>
             <Stack pt={6}>
-              <Text align={"center"}>
+              <Text align={"center"} color="white" fontSize={'lg'}>
                 Already a user?{" "}
                 <Link href="/" color={"blue.400"}>
                   Login
@@ -218,6 +255,7 @@ export default function SignupCard() {
           </Stack>
         </Box>
       </Stack>
+      </Box>
     </Flex>
   );
 }

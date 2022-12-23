@@ -15,11 +15,11 @@ import {
 } from "@chakra-ui/react";
 
 import axios from "axios";
-
 import Link from "next/link";
 import {useRouter} from "next/router"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { postLogin } from "../redux/user/user.action";
 
@@ -50,23 +50,20 @@ export default function Home() {
     <Box bg={"black"}>
       <Navbar />
 
-      <Stack align={"center"}>
-        <Heading fontSize={"4xl"}>
+      <Stack align={"center"} >
+        <Text fontSize={"5xl"} color={'white'} >
           "No pretenses. No games. Just real dates."
-        </Heading>
-        <Heading>Love is Love</Heading>
+        </Text>
+        <Text fontSize={"2xl"} color={'white'}>Love is Love</Text>
       </Stack>
 
-      <Flex minH={"80vh"} align={"center"} justify={"space-evenly"} gap="2rem">
+      <Flex minH={"65vh"} align={"center"} justify={"space-evenly"} gap="2rem">
         <Box>
           <Image src="https://i.ibb.co/Br558sN/landing.webp" alt="logo" />
         </Box>
 
         <Flex align={"center"} justify={"center"}>
           <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-            {/* <Stack align={"center"}>
-                  <Heading fontSize={"4xl"}> Love is waiting in the lucky dip..</Heading>
-               </Stack> */}
             <Box
               boxShadow={"lg"}
               p={8}
@@ -124,6 +121,8 @@ export default function Home() {
           </Stack>
         </Flex>
       </Flex>
+
+      <Footer/>
     </Box>
   );
 }
