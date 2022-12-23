@@ -105,7 +105,7 @@ Form validation
 
 <div width="100%">
 <h3>Signin Page</h3>
-![signup](img/Sweetmeet_signup.png)
+<img src="https://github.com/snikhil2001/web-spirits/blob/main/img/Sweetmeet_signup.PNG" />
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
