@@ -38,9 +38,9 @@ according to their age, food choices and hobbies.**
 <hr/>
 
 ## Functionalities
+
 - SignIn
 - Login
-
 
 ## Project as
 
@@ -50,6 +50,7 @@ according to their age, food choices and hobbies.**
 - ### **Web Socket**
 
 <br/><br/>
+
 ## 🤝 **_Collaborators_**
 
 # 👨🏻 **Nikhil Sahni** `Team Leader`
@@ -57,7 +58,6 @@ according to their age, food choices and hobbies.**
 - Github: [@snikhil2001](https://github.com/snikhil2001)
 - Linkedin: [Nikhil Sahni](https://www.linkedin.com/in/nikhil-sahni-8a3562239/)
 - Email: (nikhilsahni2001@gmail.com)
-
 
 # 👩🏼 **Akanksha Malviya**
 
@@ -77,8 +77,8 @@ according to their age, food choices and hobbies.**
 - Linkedin: [Ankit Singh](https://www.linkedin.com/in/ankit-singh-rajawat-08579521a/)
 - Email: (ankit.s8080@gmail.com)
 
-
 <br/><br/>
+
 # ** Tech Stacks used **
 
 <ul>
@@ -102,9 +102,10 @@ according to their age, food choices and hobbies.**
 
 Form validation
 <br/><br/>
+
 <div width="100%">
 <h3>Signin Page</h3>
-![Alt text](img/Sweetmeet_signup.PNG)
+![Alt text](img/Sweetmeet_signup.png)
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
