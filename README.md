@@ -127,7 +127,3 @@ User Can Create their Sign in details and after that he can able to Login to web
 <br/><br/>
 
 <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
-
-
-
-
