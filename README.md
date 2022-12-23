@@ -51,7 +51,6 @@ according to their age, food choices and hobbies.**
 
 <br/><br/>
 ## 🤝 **_Collaborators_**
-## 🤝 **Team Name:- Web-Sprit**
 
 # 👨🏻 **Nikhil Sahni** `Team Leader`
 
@@ -105,24 +104,24 @@ Form validation
 <br/><br/>
 <div width="100%">
 <h3>Signin Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_signup.PNG"/>
+<img width="70%" margin="auto" src="https://raw.githubusercontent.com/snikhil2001/web-spirits/main/img/Sweetmeet_signup.PNG?token=GHSAT0AAAAAABZCTOMSHRMOAF5IJYFRK3QCY5FOAEA"/>
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
 <div width="100%">
 <h3>Login Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_login.PNG"/>
+<img width="70%" margin="auto" src="https://raw.githubusercontent.com/snikhil2001/web-spirits/main/img/Sweetmeet_login.PNG?token=GHSAT0AAAAAABZCTOMTNJCFSYIE5LW3RP3QY5FN7TA"/>
 </div>
 User Can Create their Sign in details and after that he can able to Login to website. 
 <br/><br/>
 <div width="100%">
 <h3>Landing page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_Landing.PNG"/>
+<img width="70%" margin="auto" src="https://raw.githubusercontent.com/snikhil2001/web-spirits/main/img/Sweetmeet_Landing.PNG?token=GHSAT0AAAAAABZCTOMT4Y4ZBBVXN527P73UY5FN7BA"/>
 </div>
 <br/><br/>
 <div width="100%">
 <h3>Chatting Page</h3>
-<img width="70%" margin="auto" src="https://github.com/AshishKohad27/MongoChat/blob/main/images/Sweetmeet_Chatting.PNG"/>
+<img width="70%" margin="auto" src="https://raw.githubusercontent.com/snikhil2001/web-spirits/main/img/Sweetmeet_Chatting.PNG?token=GHSAT0AAAAAABZCTOMSUHE35XZB6PMNVAUKY5FN6KA"/>
 <div/>
 <br/><br/>
 
