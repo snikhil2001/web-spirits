@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   HStack,
   Stack,
+  Image
 } from '@chakra-ui/react';
 import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
 
@@ -26,68 +27,68 @@ export default function PostWithLike({disable,data}) {
   return (
     <Center py={6}>
       <Box
-        w="sm"
+        w="lg"
         rounded={'lg'}
         my={5}
         mx={[0, 5]}
-        // minH={'500px'}
+        minH={'80vh'}
         overflow={'hidden'}
-        bg="white"
-        border={'1px'}
-        borderColor="black"
-        boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
-        <Box h={'200px'} borderBottom={'1px'} borderColor="black">
+        bg={'		#F5F5F5'}
+        borderBottomRadius={'10px'}
+       >
+        <Box h={'400px'}>
           <Img
             src={
-              'https://www.kindpng.com/picc/m/163-1636340_user-avatar-icon-avatar-transparent-user-icon-png.png'
+              'https://hips.hearstapps.com/digitalspyuk.cdnds.net/18/24/1528725844-call-me-by-your-name-poster.jpg'
             }
             roundedTop={'sm'}
+            roundedBottom={'md'}
             objectFit="cover"
             h="full"
             w="full"
             alt={'Blog Image'}
           />
         </Box>
-        <Box p={4}>
-          
-          <Heading color={'black'} fontSize={'2xl'} noOfLines={1}>
+        
+        <Box px={'2'}>
+          <Text color={'black'} fontSize={'4xl'} fontWeight={'semibold'} noOfLines={1}>
             {data?data.name:null}
-          </Heading>
+          </Text>
+        </Box>
+
+        <Box p={3} >
           <Box
-            bg="black"
-            display={'inline-block'}
-            px={2}
-            py={1}
-            color="white"
-            mb={2}>
-              <Text fontSize={'xs'} fontWeight="medium">
-              {data?data.age:null},{data?data.gender:null}
-            </Text>
+            display={'flex'}
+            justifyContent={'left'}
+            alignItems={'center'}>
+              <Text fontSize={'3xl'} fontWeight="medium" color={'gray.500'} >{data?data.age:null},{data?data.gender:null}</Text>
+              <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Gender_neutral.svg/791px-Gender_neutral.svg.png" width="35px" />
+             
           </Box>
-          <Text color={'gray.500'} noOfLines={2}>
+
+          <Text color={'gray.500'} fontSize={'18px'} noOfLines={2}>
             {data.desc}
           </Text>
         </Box>
-        <Stack fontSize={'16px'}
-            fontWeight={'bold'} color={useColorModeValue('gray.700', 'gray.400')}  align={'center'} justify={'flex-start'} direction={'column'} mt={6}>
-        
-            <Box>My hobbies: {data.hobbies?data.hobbies.join(","):null}</Box>
-            <Box>Favourite cuisine:{data.food?data.food:null}</Box>
-          </Stack>
-        <HStack borderTop={'1px'} color="black">
+
+        <Stack align={'left'} p={'4'} justify={'flex-start'} direction={'column'}>
+            <Box color="red.300" fontSize={'18px'}  fontWeight={'semibold'} >My hobbies: {data.hobbies?data.hobbies.join(","):null}</Box>
+            <Box color="red.300" fontSize={'18px'}  fontWeight={'semibold'}>Favourite cuisine: {data.food?data.food:null}</Box>
+        </Stack>
+
+        <Flex bgGradient={"linear(to-r, red.400, orange.500)"} p={'4'}>
          
           <Flex
             p={4}
             alignItems="center"
             justifyContent={'space-between'}
             roundedBottom={'sm'}
-            borderLeft={'1px'}
             cursor="pointer"
             onClick={() => setLiked(!liked)}>
             {liked ? (
-              <BsHeartFill fill="red" fontSize={'24px'} />
+              <BsHeartFill fill="red" fontSize={'50px'} />
             ) : (
-              <BsHeart fontSize={'24px'} />
+              <BsHeart fontSize={'50px'} />
             )}
           </Flex>
           <Flex
@@ -97,12 +98,12 @@ export default function PostWithLike({disable,data}) {
             roundedBottom={'sm'}
             cursor={'pointer'}
             w="full">
-            <Text fontSize={'md'} fontWeight={'semibold'} onClick={handleDisable} >
+            <Text fontSize={'4xl'} fontWeight={'semibold'} color={'white'} onClick={handleDisable} >
               Chat
             </Text>
             <BsArrowUpRight />
           </Flex>
-        </HStack>
+        </Flex>
       </Box>
     </Center>
   );

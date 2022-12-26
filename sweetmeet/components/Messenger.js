@@ -10,6 +10,7 @@ import { io } from "socket.io-client";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Card from "./Card";
+import { BsArrowLeftShort} from 'react-icons/bs';
 
 let conversationId = "";
 
@@ -159,20 +160,13 @@ export default function Messenger({ data }) {
           className={styles.chatMenu}
           bgGradient={"linear(to-r, red.400, orange.500)"}
         >
-          <Heading align={"center"} color={"white"}>
+          <Text fontSize={'30px'} fontWeight={'semibold'} align={"center"} color={"white"}>
             My Profile
-          </Heading>
+          </Text>
           <SocialProfile token={tokenDetails} />
         </Box>
 
         {show ? (
-          <Flex>
-            {data &&
-              data.map((item, index) => (
-                <Card key={index} disable={disable} data={item} />
-              ))}
-          </Flex>
-        ) : (
           <>
             <Box w="45%" className={styles.chatBox}>
               <Box overflowY="auto" h="600px">
@@ -191,17 +185,20 @@ export default function Messenger({ data }) {
                   </Box>
                 ) : (
                   <Flex justify={"space-evenly"}>
-                    <Heading as="h1" bg="pink.200" align={"center"}>
+                    <Text fontSize={'25px'} fontWeight={'semibold'} color="teal" align={"center"}>
                       Start a conversation{" "}
-                    </Heading>
-                    <Text
-                      onClick={() => setShow(true)}
-                      fontSize={"18px"}
-                      fontWeight={"bold"}
-                      cursor={"pointer"}
-                    >
-                      Go back
                     </Text>
+                    <Flex justifyContent={'center'} alignItems={'center'}>
+                      <BsArrowLeftShort fontSize={'25px'} />
+                      <Text
+                      onClick={() => setShow(false)}
+                      fontSize={"20px"}
+                      cursor={"pointer"}
+                      fontWeight={'semibold'}
+                      >
+                      Go back
+                      </Text>
+                    </Flex>
                   </Flex>
                 )}
               </Box>
@@ -219,7 +216,7 @@ export default function Messenger({ data }) {
             </Box>
 
             <Box w="25%" className={styles.chatMenu} p={"2"} bg="black">
-              <Heading color="white">Most Recent</Heading>
+              <Text color="white" fontSize={'30px'} fontWeight={'semibold'} >Most Recent</Text>
 
               {data &&
                 data.map((el, index) => (
@@ -241,6 +238,13 @@ export default function Messenger({ data }) {
                 ))}
             </Box>
           </>
+        ):(
+          <Flex>
+            {data &&
+              data.map((item, index) => (
+                <Card key={index} disable={disable} data={item} />
+              ))}
+          </Flex>
         )}
       </Flex>
     </Box>

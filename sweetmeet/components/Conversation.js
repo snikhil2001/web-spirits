@@ -9,12 +9,13 @@ export default function Conversation({ name, conversation, currentUser }) {
           <WrapItem>
             <Avatar
               name="Dan Abrahmov"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWT3tmbUw0_yhTou2zV5X8RD24eQUt7sO8mZdLFDF4&s"
+              size="lg"
+              src="https://cdn-icons-png.flaticon.com/128/236/236832.png"
             />
           </WrapItem>
         </Box>
         <Box>
-          <Text fontSize={'20px'} color={'white'}>{name}</Text>
+          <Text fontSize={'25px'} color={'white'}>{name}</Text>
         </Box>
       </Flex>
     </Box>
